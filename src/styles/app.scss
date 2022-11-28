@@ -1,0 +1,9 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+.container {
+    position: relative;
+    margin: 50px 150px;
+    color: $color-dark-grey;
+    font-family: 'Open Sans';
+}

@@ -1,0 +1,109 @@
+@import "variables";
+
+.form-section {
+    color: $color-darker-grey;
+
+    .form {
+        margin: 0 150px;
+
+        .heading_3 {
+            font-size: 24px;
+        }
+        .heading {
+            border: 1px solid $color-light-blue;
+            background-color: $color-light-blue;
+            display: flex;
+            justify-content: space-between;
+        
+            p {
+                margin: 15px;
+                color: $color-black;
+                font-weight: 900;
+            }
+        
+            &__icon {
+                margin-top: 10px;
+                color: $color-black;
+            }
+        }
+    
+        form {
+            margin: 10px;
+    
+            .form-label {
+                margin-bottom: 8px;
+            }
+            
+            .ft-600 {
+                font-size: 20px;
+                font-weight: 600;
+            }
+    
+            .form-display {
+                display: flex;
+    
+                &__input {
+                    width: 50vw;
+                    height: 30px;
+                    border: 1px solid $color-dark-grey;
+                }
+
+                &__input_two {
+                    width: 45vw;
+                    height: 60px;
+                    border: 1px solid $color-dark-grey;
+                }
+
+                &__select {
+                    width: 8%;
+                    height: 34px;
+                    padding: 5px;
+                }
+    
+                &__button {
+                    margin-left: 30px;
+                    border: 2px solid $color-dark-blue;
+                    background: $color-dark-blue;
+                    height: 35px;
+                    width: 100px;
+                    color: $color-white;
+                }
+
+                .disabled {
+                    border: 2px solid $color-dark-grey !important;
+                    background: $color-dark-grey !important; 
+                }
+
+                &__button_two {
+                    margin-left: 30px;
+                    border: 2px solid $color-dark-blue;
+                    background: $color-dark-blue;
+                    height: 35px;
+                    width: 200px;
+                    color: $color-white;
+                }
+            }
+        }
+    }
+
+    .line-break {
+        border-bottom: 1px solid $color-dark-grey;
+        margin: 30px;
+    }
+}
+
+@media (max-width: $breakpoints-tablet) {
+    .container {
+        margin: 10px 10px !important;
+
+        .form-section .form {
+            margin: 0 20px;
+
+            .form-display {
+                &__select {
+                    padding: 2px;
+                }
+            }
+        }
+    }
+}

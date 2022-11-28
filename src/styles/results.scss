@@ -1,0 +1,25 @@
+@import "variables";
+
+.search-results {
+    margin: 0 150px;
+
+    &__title {
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: $breakpoints-tablet) {
+    .container {
+
+        .form-section {
+            .form-display__button_two {
+                width: 100px !important;
+            }
+
+            .search-results {
+                margin: 0 25px;
+            }
+        }
+    }
+}
