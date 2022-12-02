@@ -10,10 +10,23 @@
 
     .search-box {
         .single-result {
-            h3 {
+            text-shadow: 2px 2px 11px $color-dark-grey;
+
+            h4 {
                 font-size: 14px;
-                // text-shadow: 2px 2px 11px $color-blue;
+                text-shadow: 2px 2px 11px $color-blue;
                 color: $color-blue;
+            }
+
+            &__author {
+                color: $color-green;
+                text-shadow: 2px 2px 11px $color-green;
+
+            }
+
+            &__title {
+                color: $color-blue;
+                text-shadow: 2px 2px 11px $color-blue;
             }
         }
     }
