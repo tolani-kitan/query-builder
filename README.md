@@ -14,6 +14,11 @@ This is an advanced query builder for various searches.
 - Material UI (A React UI library of styled components)
 - React Test Library
 
+## Reuseable Components
+- Button
+- Input
+- Label
+
 ## Things that didn't go so great
 
 - I was unable to include the pagination as I didn't have enough time to complete it. 
