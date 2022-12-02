@@ -7,6 +7,16 @@
         font-size: 20px;
         font-weight: 600;
     }
+
+    .search-box {
+        .single-result {
+            h3 {
+                font-size: 14px;
+                // text-shadow: 2px 2px 11px $color-blue;
+                color: $color-blue;
+            }
+        }
+    }
 }
 
 @media (max-width: $breakpoints-tablet) {

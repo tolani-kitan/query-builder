@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-// import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import '../styles/home.scss';
 import Button from './Button';
 import Input from './Input';
@@ -13,16 +13,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState(false);
   const [option, setOption] = useState('');
-
-  // const { data } = useQuery({
-  //   queryKey: ['repoData'],
-  //   queryFn: () =>
-  //     fetch(
-  //       `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=cat&resultType=lite&cursorMark=*&pageSize=25&format=json`
-  //     ).then((res) => res.json())
-  // });
-
-  // console.log(data);
+  const [results, setResults] = useState([]);
 
   const updateTerm = (e) => {
     const { value } = e.target;
@@ -30,25 +21,27 @@ const Home = () => {
     if (value) setLoading(true);
   };
 
-  const updateQuery = (e) => {
-    const { value } = e.target;
-    setQuery(value);
-  };
-
-  const updateOption = (e) => {
-    const { value } = e.target;
-    setOption(value);
-    console.log(option);
-  };
-
   const add = () => {
     const queries = [];
+    // let newQuery;
     queries.push(term);
-    if (option) queries.push(option);
-    setQuery(...queries);
+    setQuery(term);
+    // if (option) {
+    //   newQuery = [...queries, option];
+    //   setQuery(newQuery);
+    // }
+
     setTerm('');
     setLoading(false);
     setInput(true);
+  };
+
+  const getResult = async () => {
+    const { data } = await axios.get(
+      `https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=${query}&resultType=lite&cursorMark=*&format=json`
+    );
+
+    setResults(data.resultList.result);
   };
 
   return (
@@ -69,7 +62,10 @@ const Home = () => {
           <Label label="Enter term or phrase" id="term" className="form-label" />
           {input ? (
             <div className="form-display">
-              <select className="form-display__select" value={option} onChange={updateOption}>
+              <select
+                className="form-display__select"
+                value={option}
+                onChange={(e) => setOption(e.target.value)}>
                 <option value="and">AND</option>
                 <option value="or">OR</option>
               </select>
@@ -103,13 +99,12 @@ const Home = () => {
             <Input
               id="query"
               value={query}
-              onChange={updateQuery}
+              onChange={(e) => setQuery(e.target.value)}
               className="form-display__input_two"
             />
             <Button
               buttonText="View Search Results"
-              loading
-              onClick
+              onClick={getResult}
               className="form-display__button_two"
             />
           </div>
@@ -118,7 +113,7 @@ const Home = () => {
 
       <div className="line-break"></div>
 
-      <Results />
+      <Results results={results} />
     </div>
   );
 };
