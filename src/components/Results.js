@@ -4,7 +4,6 @@ import '../styles/results.scss';
 // import Pagination from './Pagination';
 
 const Results = ({ results }) => {
-  console.log('results', results);
   return (
     <div className="search-results">
       <p className="search-results__title">Search results</p>
@@ -12,7 +11,7 @@ const Results = ({ results }) => {
       {/* <Pagination results={results} /> */}
 
       <div className="search-box">
-        {results ? (
+        {results.length > 0 ? (
           results.map((result, index) => (
             <div key={index.id} className="single-result">
               <h4>{result.title}</h4>

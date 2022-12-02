@@ -23,14 +23,9 @@ const Home = () => {
 
   const add = () => {
     const queries = [];
-    // let newQuery;
+
     queries.push(term);
     setQuery(term);
-    // if (option) {
-    //   newQuery = [...queries, option];
-    //   setQuery(newQuery);
-    // }
-
     setTerm('');
     setLoading(false);
     setInput(true);
@@ -66,8 +61,8 @@ const Home = () => {
                 className="form-display__select"
                 value={option}
                 onChange={(e) => setOption(e.target.value)}>
-                <option value="and">AND</option>
-                <option value="or">OR</option>
+                <option value="AND">AND</option>
+                <option value="OR">OR</option>
               </select>
               <Input id="term" value={term} onChange={updateTerm} className="form-display__input" />
               <Button
