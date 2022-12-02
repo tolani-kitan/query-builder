@@ -27,7 +27,7 @@
     "lint:fix": "eslint --fix",
     "build": "react-scripts build",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "test": "react-scripts test",
+    "test": "jest ./src/",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
